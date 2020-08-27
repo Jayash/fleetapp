@@ -1,15 +1,12 @@
 package com.project.fleetapp.models;
 
-
-
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
@@ -20,24 +17,34 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Data
 @Builder
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
-public class Country {
+public class Client {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Long id;
 	
-	private String code;
-	private String capital;
-	private String description;
-	private String nationality;
-	private String continent;
+	private String name;
+	private String address;
+	private String city;
+	private String phone;
+	private String mobile;
+	private String website;
+	private String email;
 	
-	@OneToMany(mappedBy = "countryid", fetch = FetchType.LAZY)
-	private List<State> states;
+	
+	@ManyToOne(targetEntity = Country.class, fetch = FetchType.LAZY)
+	@JoinColumn(name = "countryid", referencedColumnName = "id", insertable = false, updatable = false)
+	private Country countryid;
+	
+	@ManyToOne(targetEntity = State.class, fetch = FetchType.LAZY)
+	@JoinColumn(name = "stateid", referencedColumnName = "id", updatable = false, insertable = false)
+	private State stateid;
+	
+	private String details;
 	
 }
