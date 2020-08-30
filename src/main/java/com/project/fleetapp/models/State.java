@@ -33,7 +33,7 @@ public class State {
 	private String code;
 	
 	@ManyToOne(targetEntity = Country.class, fetch = FetchType.LAZY)
-	@JoinColumn(name = "countryid", referencedColumnName = "id", insertable = false, updatable = false)
+	@JoinColumn(name = "countryid", referencedColumnName = "id")
 	private Country countryid;
 	
 	private String details;
