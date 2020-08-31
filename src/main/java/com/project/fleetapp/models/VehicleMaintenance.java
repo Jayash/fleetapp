@@ -1,5 +1,8 @@
 package com.project.fleetapp.models;
 
+import java.time.Instant;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -17,34 +20,29 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Builder
 @Data
-@AllArgsConstructor
+@Builder
 @NoArgsConstructor
+@AllArgsConstructor
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
-public class Client {
+public class VehicleMaintenance {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="id")
 	private Long id;
 	
-	private String name;
-	private String address;
-	private String city;
-	private String phone;
-	private String mobile;
-	private String website;
-	private String email;
+	@ManyToOne(targetEntity = Vehicle.class, fetch = FetchType.LAZY)
+	@JoinColumn(name="vehicleid", referencedColumnName = "id")
+	private Vehicle vehicleid;
 	
+	private Instant startDate;
+	private Instant endDate;
+	private String price;
 	
-	@ManyToOne(targetEntity = Country.class, fetch = FetchType.LAZY)
-	@JoinColumn(name = "countryid", referencedColumnName = "id")
-	private Country countryid;
+	@ManyToOne(targetEntity = Supplier.class, fetch = FetchType.LAZY)
+	@JoinColumn(name="supplierid", referencedColumnName = "id")
+	private Supplier supplierid;
 	
-	@ManyToOne(targetEntity = State.class, fetch = FetchType.LAZY)
-	@JoinColumn(name = "stateid", referencedColumnName = "id")
-	private State stateid;
-	
-	private String details;
-	
+	private String remarks;
 }

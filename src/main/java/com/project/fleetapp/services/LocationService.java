@@ -25,7 +25,7 @@ public class LocationService {
 	private final CountryRepository countryRepository;
 	
 	/*
-	 * Return All states
+	 * Return All Location
 	 */
 	@Transactional
 	public List<Location> getAll() {
@@ -33,7 +33,7 @@ public class LocationService {
 	}
 	
 	/*
-	 * add a new state
+	 * add a new Location
 	 */
 	@Transactional
 	public void save(LocationDto locationDto) {
@@ -50,7 +50,7 @@ public class LocationService {
 	}
 	
 	/*
-	 * find state by id
+	 * find Location by id
 	 */
 	@Transactional
 	public LocationDto findById(Long id) {
@@ -61,7 +61,7 @@ public class LocationService {
 	}
 	
 	/*
-	 * update state by id
+	 * update Location by id
 	 */
 	@Transactional
 	public void update(LocationDto locationDto) {
@@ -106,7 +106,7 @@ public class LocationService {
 	}
 	
 	/*
-	 * delete state by id
+	 * delete Location by id
 	 */
 	@Transactional
 	public void delete(Long id) {

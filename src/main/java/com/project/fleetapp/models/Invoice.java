@@ -33,11 +33,11 @@ public class Invoice {
 	private Instant invoiceDate;
 	
 	@ManyToOne(targetEntity = InvoiceStatus.class, fetch = FetchType.LAZY)
-	@JoinColumn(name = "invoiceStatusid", referencedColumnName = "id", insertable = false, updatable = false)
+	@JoinColumn(name = "invoiceStatusid", referencedColumnName = "id")
 	private InvoiceStatus invoiceStatusid;
 	
 	@ManyToOne(targetEntity = Client.class, fetch = FetchType.LAZY)
-	@JoinColumn(name = "clientid", referencedColumnName = "id", insertable = false, updatable = false)
+	@JoinColumn(name = "clientid", referencedColumnName = "id")
 	private Client clientid;
 	
 	private String remarks;

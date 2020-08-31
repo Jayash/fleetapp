@@ -45,8 +45,8 @@ public class LocationController {
 	}
 	
 	@RequestMapping(value = "/update", method = {RequestMethod.POST, RequestMethod.PUT})
-	public String update(LocationDto locatioDto) {
-		locationService.update(locatioDto);
+	public String update(LocationDto locationDto) {
+		locationService.update(locationDto);
 		return "redirect:/locations";
 	}
 	

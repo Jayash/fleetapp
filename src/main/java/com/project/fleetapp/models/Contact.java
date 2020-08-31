@@ -30,5 +30,5 @@ public class Contact {
 	private String phone;
 	private String email;
 	private String mobile;
-	private String remart;
+	private String remarks;
 }

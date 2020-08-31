@@ -9,13 +9,15 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class LocationDto {
+public class VehicleMaintenanceDto {
 	
+
 	private Long id;
-	private String description;
-	private String details;
-	private Long countryid;
-	private Long stateid;
-	private String city;
-	private String address;
+	private Long vehicleid;
+	private String startDate;
+	private String endDate;
+	private String price;
+	private Long supplierid;
+	private String remarks;
+	private String name;
 }

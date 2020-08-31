@@ -9,13 +9,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class LocationDto {
+public class InvoiceDto {
 	
 	private Long id;
-	private String description;
-	private String details;
-	private Long countryid;
-	private Long stateid;
-	private String city;
-	private String address;
+	private String invoiceDate;
+	private String remarks;
+	private Long invoicestatusid;
+	private Long clientid;
 }

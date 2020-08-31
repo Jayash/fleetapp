@@ -9,13 +9,17 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class LocationDto {
+public class ClientDto {
 	
 	private Long id;
-	private String description;
+	private String name;
+	private String address;
+	private String city;
+	private String phone;
+	private String mobile;
+	private String website;
+	private String email;
 	private String details;
 	private Long countryid;
 	private Long stateid;
-	private String city;
-	private String address;
 }
