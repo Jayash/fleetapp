@@ -11,7 +11,6 @@ import org.springframework.transaction.annotation.Transactional;
 import com.project.fleetapp.dto.VehicleMaintenanceDto;
 import com.project.fleetapp.exceptions.FleetappException;
 import com.project.fleetapp.models.Supplier;
-import com.project.fleetapp.models.Vehicle;
 import com.project.fleetapp.models.VehicleMaintenance;
 import com.project.fleetapp.repositories.SupplierRepository;
 import com.project.fleetapp.repositories.VehicleMaintenanceRepository;
@@ -47,7 +46,7 @@ public class VehicleMaintenanceService {
 								.orElseThrow(() -> new FleetappException("supplier not found"));
 		
 		VehicleMaintenance vehicleMaintenance = mapDtoToObject(vehicleMaintenanceDto);
-		vehicleMaintenance.setVehicleid(null);
+		//vehicleMaintenance.setVehicleid(vehicle);
 		vehicleMaintenance.setSupplierid(supplier);
 		vehicleMaintenanceRepository.save(vehicleMaintenance);
 	}
@@ -75,13 +74,13 @@ public class VehicleMaintenanceService {
 		VehicleMaintenance vehicleMaintenance = vehicleMaintenanceRepository.findById(vehicleMaintenanceDto.getId()).
 				orElseThrow(() -> new FleetappException("vehicleMaintenance not found"));
 		
-		Vehicle vehicle = vehicleRepository.findById(vehicleMaintenanceDto.getVehicleid())
-				.orElseThrow(() -> new FleetappException("vehicle not found"));
+		/*Vehicle vehicle = vehicleRepository.findById(vehicleMaintenanceDto.getVehicleid())
+				.orElseThrow(() -> new FleetappException("vehicle not found"));*/
 		
 		Supplier supplier = supplierRepository.findById(vehicleMaintenanceDto.getSupplierid())
 				.orElseThrow(() -> new FleetappException("supplier not found"));
 		
-		vehicleMaintenance.setVehicleid(vehicle);
+		//vehicleMaintenance.setVehicleid(vehicle);
 		vehicleMaintenance.setSupplierid(supplier);
 		vehicleMaintenance.setStartDate(instant1);
 		vehicleMaintenance.setEndDate(instant2);
@@ -101,6 +100,7 @@ public class VehicleMaintenanceService {
 				.remarks(vehicleMaintenance.getRemarks())
 				.supplierid(vehicleMaintenance.getSupplierid().getId())
 				//.vehicleid(vehicleMaintenance.getVehicleid().getId())
+				//.name(vehicleMaintenance.getVehicleid().getName())
 				.build();
 	}
 	

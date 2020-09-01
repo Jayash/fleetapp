@@ -34,11 +34,11 @@ public class Person {
 	private String maritalStatus;
 	
 	@ManyToOne(targetEntity = Country.class, fetch = FetchType.LAZY)
-	@JoinColumn(name = "countryid", referencedColumnName = "id", insertable = false, updatable = false)
+	@JoinColumn(name = "countryid", referencedColumnName = "id")
 	private Country countryid;
 	
 	@ManyToOne(targetEntity = State.class, fetch = FetchType.LAZY)
-	@JoinColumn(name = "stateid", referencedColumnName = "id", insertable = false, updatable = false)
+	@JoinColumn(name = "stateid", referencedColumnName = "id")
 	private State stateid;
 	
 	private Instant dateOfBirth;

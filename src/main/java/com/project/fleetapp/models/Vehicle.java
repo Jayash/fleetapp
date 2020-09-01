@@ -33,32 +33,37 @@ public class Vehicle {
 	private String name;
 	
 	@ManyToOne(targetEntity = VehicleType.class, fetch = FetchType.LAZY)
-	@JoinColumn(name = "vehicleTypeid", referencedColumnName = "id", insertable = false, updatable = false)
+	@JoinColumn(name = "vehicleTypeid", referencedColumnName = "id")
 	private VehicleType vehicleTypeid;
 	
 	private String vehicleNumber;
 	private Instant registrationDate;
 	private Instant acquisationDate;
 	private String description;
+	private String power;
+	private String fuelCapacity;
+	private String netWeight;
 	
 	@ManyToOne(targetEntity = VehicleStatus.class, fetch = FetchType.LAZY)
-	@JoinColumn(name = "vehicleStatueid", referencedColumnName = "id", updatable = false, insertable = false)
+	@JoinColumn(name = "vehicleStatueid", referencedColumnName = "id")
 	private VehicleStatus vehicleStatueid;
 	
 	@ManyToOne(targetEntity = Employee.class, fetch = FetchType.LAZY)
-	@JoinColumn(name = "employeeid", referencedColumnName = "id", updatable = false, insertable = false)
+	@JoinColumn(name = "employeeid", referencedColumnName = "id")
 	private Employee employeeid;
 
 	@ManyToOne(targetEntity = VehicleModel.class, fetch = FetchType.LAZY)
-	@JoinColumn(name = "vehicleModelid", referencedColumnName = "id", updatable = false, insertable = false)
+	@JoinColumn(name = "vehicleModelid", referencedColumnName = "id")
 	private VehicleModel vehicleModelid;
 	
 	@ManyToOne(targetEntity = Location.class, fetch = FetchType.LAZY)
-	@JoinColumn(name = "locationid", referencedColumnName = "id", updatable = false, insertable = false)
+	@JoinColumn(name = "locationid", referencedColumnName = "id")
 	private Location locationid;
 	
+	@ManyToOne(targetEntity = VehicleMake.class, fetch = FetchType.LAZY)
+	@JoinColumn(name="vehiclemakeid", referencedColumnName = "id")
+	private VehicleMake vehicleMakeid;
+	
 	private String remarks;
-	
-	
 	
 }

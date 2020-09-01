@@ -27,7 +27,7 @@ public class VehicleHire {
 	private Long id;
 	
 	@ManyToOne(targetEntity = Vehicle.class, fetch = FetchType.LAZY)
-	@JoinColumn(name = "vehicleid", referencedColumnName = "id", updatable = false, insertable = false)
+	@JoinColumn(name = "vehicleid", referencedColumnName = "id")
 	private Vehicle vehicleid;
 	
 	private Instant dateOut;
@@ -36,11 +36,11 @@ public class VehicleHire {
 	private String timeIn;
 	
 	@ManyToOne(targetEntity = Client.class, fetch = FetchType.LAZY)
-	@JoinColumn(name = "clientid", referencedColumnName = "id", updatable = false, insertable = false)
+	@JoinColumn(name = "clientid", referencedColumnName = "id")
 	private Client clientid;
 	
 	@ManyToOne(targetEntity = Location.class, fetch = FetchType.LAZY)
-	@JoinColumn(name = "locationid", referencedColumnName = "id", updatable = false, insertable = false)
+	@JoinColumn(name = "locationid", referencedColumnName = "id")
 	private Location locationid;
 	
 	private String price;

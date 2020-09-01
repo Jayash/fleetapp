@@ -31,17 +31,17 @@ public class VehicleMovement {
 	private Long id;
 	
 	@ManyToOne(targetEntity = Vehicle.class, fetch = FetchType.LAZY)
-	@JoinColumn(name = "vehicleid", referencedColumnName = "id", insertable = false, updatable = false)
+	@JoinColumn(name = "vehicleid", referencedColumnName = "id")
 	private Vehicle vehicleid;
 	
 	@ManyToOne(targetEntity = Location.class, fetch = FetchType.LAZY)
-	@JoinColumn(name = "locationStartid", referencedColumnName = "id", insertable = false, updatable = false)
+	@JoinColumn(name = "locationStartid", referencedColumnName = "id")
 	private Location locationStartid;
 	
 	private Instant dateStart;
 	
 	@ManyToOne(targetEntity = Location.class, fetch = FetchType.LAZY)
-	@JoinColumn(name = "locationEndid", referencedColumnName = "id", insertable = false, updatable = false)
+	@JoinColumn(name = "locationEndid", referencedColumnName = "id")
 	private Location locationEndid;
 	
 	private Instant dateEnd;
