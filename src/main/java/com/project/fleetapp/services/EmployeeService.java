@@ -190,4 +190,9 @@ public class EmployeeService {
 	public void delete(Long id) {
 		employeeRepository.deleteById(id);
 	}
+
+	public Employee findByUsername(String username) {
+		return employeeRepository.findByUsername(username)
+				.orElseThrow(() -> new FleetappException("employee not found"));
+	}
 }
